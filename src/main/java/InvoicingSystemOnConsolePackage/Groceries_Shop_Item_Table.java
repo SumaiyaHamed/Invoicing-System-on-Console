@@ -3,21 +3,17 @@ package InvoicingSystemOnConsolePackage;
 import java.sql.Driver;
 import java.sql.DriverManager;
 
-public class Groceries_Shop_Invoice_Table {
-	
+public class Groceries_Shop_Item_Table {
+
 	public static boolean createTable() {
 
 		String url = "jdbc:mysql://localhost:3306/Groceries_Shop";
 		String user = "root";
 		String pass = "root";
-		String sqlDB = "CREATE TABLE Invoice "+"(item_ID" + "REFRENCE Item(id)," +
-		                                       " customer_name  VARCHAR(255), "+
-				                               " Phone.No INTEGER, " +
-                                               " invoice_date Date , " + 
-				                               " NO.items INTEGER , " +
-				                               "total_amount float , " +
-				                               "paid_amount float , " +
-				                               "balance float , " ;
+		String sqlDB = "CREATE TABLE Item " + "(item_ID INTEGER," +
+		                                      "  item_name  VARCHAR(255), " +
+		                                      "quantity float , "+
+				                              " PRIMARY KEY ( id ))";
 		java.sql.Connection conn = null;
 		try {
 			Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
@@ -36,7 +32,6 @@ public class Groceries_Shop_Invoice_Table {
 			System.err.println(ex);
 		}
 		return false;
-		
 
 	}
 
