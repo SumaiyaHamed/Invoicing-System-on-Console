@@ -3,6 +3,8 @@ package InvoicingSystemOnConsolePackage;
 public class Manage_Shop_Item {
 	
 public static void Manage_Shop_Item_Menu() {
+	
+	System.out.println(" Manage_Shop_Item_Menu " );
 		
 		System.out.println(" 1- Add Items \r\n"
 				+ " 2- Delete Items \r\n"

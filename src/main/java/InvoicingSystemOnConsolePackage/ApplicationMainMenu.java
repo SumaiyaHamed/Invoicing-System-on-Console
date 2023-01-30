@@ -4,6 +4,8 @@ public class ApplicationMainMenu {
 
 	public static void main_Menu() {
 		
+		System.out.println("main_Menu" );
+		
 		System.out.println("1-Shop Settings" );
 		System.out.println("2- Manage Shop Items " );
 		System.out.println("3- Create New Invoice " );
