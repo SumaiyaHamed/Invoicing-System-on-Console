@@ -6,14 +6,15 @@ public class ApplicationMainMenu {
 		
 		System.out.println("main_Menu" );
 		
-		System.out.println("1-Shop Settings" );
-		System.out.println("2- Manage Shop Items " );
-		System.out.println("3- Create New Invoice " );
-		System.out.println("4- Report: Statistics " );
-		System.out.println("5- Report: All Invoices  " );
-		System.out.println("6- Search (1) Invoice " );
-		System.out.println("7- Program Statistics " );
-		System.out.println("8- Exit " );
+		System.out.println("1-Tables Setting" );
+		System.out.println("2-Shop Settings" );
+		System.out.println("3- Manage Shop Items " );
+		System.out.println("4- Create New Invoice " );
+		System.out.println("5- Report: Statistics " );
+		System.out.println("6- Report: All Invoices  " );
+		System.out.println("7- Search (1) Invoice " );
+		System.out.println("8- Program Statistics " );
+		System.out.println("9- Exit " );
 
 	}
 

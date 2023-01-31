@@ -10,13 +10,13 @@ public class Groceries_Shop_Item_Table {
 		String url = "jdbc:mysql://localhost:3306/Groceries_Shop";
 		String user = "root";
 		String pass = "root";
-		String sqlDB = "CREATE TABLE Item " + "(item_ID INTEGER," +
+		String sqlDB = "CREATE TABLE Product " + "(item_ID INTEGER," +
 		                                      "  item_name  VARCHAR(255), " +
 		                                      "quantity float , "+
-				                              " PRIMARY KEY ( id ))";
+				                              " PRIMARY KEY ( item_ID ))";
 		java.sql.Connection conn = null;
 		try {
-			Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			Driver driver = (Driver) Class.forName("com.mysql.jdbc.Driver").newInstance();
 			DriverManager.registerDriver(driver);
 			conn = DriverManager.getConnection(url, user, pass);
 			java.sql.Statement st = conn.createStatement();
@@ -34,5 +34,6 @@ public class Groceries_Shop_Item_Table {
 		return false;
 
 	}
+	
 
 }
