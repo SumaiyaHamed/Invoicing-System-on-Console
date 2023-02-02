@@ -10,11 +10,15 @@ public class Groceries_Shop_Invoice_Header_Table {
 		String url = "jdbc:mysql://localhost:3306/Groceries_Shop";
 		String user = "root";
 		String pass = "root";
-		String sqlDB = "CREATE TABLE Invoice_Header " + ("invoice_Header_ID INTEGER AUTO_INCREMENT,"+"Tel TEXT," +
-		                                      "  Fax TEXT, " +
-				                              " Email TEXT,"+
-				                              " Website TEXT"+"shop_Detales_ID INTEGER, "
-				                              + "FOREIGN KEY (shop_Detales_ID) REFERENCES Product(shop_ID) ,"+"PRIMARY KEY (invoice_Header_ID))";
+		String sqlDB = "CREATE TABLE Header " + "(id INTEGER AUTO_INCREMENT," +"Tel INTEGER,"+"Fax TEXT," +"Email TEXT,"+"Website TEXT,"+"detales_id INTEGER "+" REFERENCES Shop(shop_id)ON DELETE CASCADE ,"+
+                
+                " PRIMARY KEY ( id ))";
+				
+				
+				
+				
+				
+			
 		java.sql.Connection conn = null;
 		try {
 			Driver driver = (Driver) Class.forName("com.mysql.jdbc.Driver").newInstance();

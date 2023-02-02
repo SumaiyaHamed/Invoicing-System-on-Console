@@ -52,25 +52,27 @@ public class Main_Class {
 				case 1:
 					
 					groceries_Shop_Invoice_Table.createTable();
+				
+				//groceries_Shop_Invoice_Table.createTable();
+				//System.out.println("..........................................");
+//				groceries_Shop_Item_Table.createTable();
+//				System.out.println("..........................................");
+				//groceries_Shop_Shop_Table.createTable();
+				//System.out.println("..........................................");
+				groceries_Shop_Invoice_Header_Table.createTable();
+				System.out.println("..........................................");
+//				
+			
 					
 					break;
 					
 				case 2:
 					
-					groceries_Shop_Invoice_Table.insertIntoTable();
 					
-				break;
+					break;
+					
 				}
-				groceries_Shop_Invoice_Table.createTable();
-				System.out.println("..........................................");
-//				groceries_Shop_Item_Table.createTable();
-//				System.out.println("..........................................");
-//				groceries_Shop_Shop_Table.createTable();
-//				System.out.println("..........................................");
-//				groceries_Shop_Invoice_Header_Table.createTable();
-//				System.out.println("..........................................");
-//				
-				//break;
+
 				}
 			case 2:
 				boolean shopSettingExit=true;
@@ -91,7 +93,15 @@ public class Main_Class {
 					
 				case 2:
 					
+					groceries_Shop_Shop_Table.insertIntoTable();
+					
 				break;
+				
+				case 3:
+					
+					
+					
+					break;
 				}
 				}
 				

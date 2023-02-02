@@ -17,16 +17,16 @@ public class Groceries_Shop_Invoice_Table {
 		String url = "jdbc:mysql://localhost:3306/Groceries_Shop";
 		String user = "root";
 		String pass = "root";
-		String sqlDB = "CREATE TABLE Invoice " + "(invoice_ID INTEGER," +
+		String sqlDB = "CREATE TABLE Invoice " + "(id INTEGER," +
 		                                       " customer_name  VARCHAR(255), "+
 				                               " Phone_No INTEGER, " +
                                                " invoice_date Date , " + 
 				                               " NO_items INTEGER , " +
-				                               "total_amount float , " +
-				                               "paid_amount float , " +
-				                               "balance float ,"+
-				                               "item_ID INTEGER ,"+
-				                               "FOREIGN KEY (item_ID) REFERENCES Product(item_ID) ,"+"PRIMARY KEY (invoice_ID))";
+				                               "total_amount FLOAT , " +
+				                               "paid_amount FLOAT , " +
+				                               "balance FLOAT ,"+
+				                               "product_id INTEGER ,"+
+				                               "FOREIGN KEY (product_id) REFERENCES Product(product_id) ,"+"PRIMARY KEY (id))";
 		java.sql.Connection conn = null; 
 		try {
 			Driver driver = (Driver) Class.forName("com.mysql.jdbc.Driver").newInstance();
