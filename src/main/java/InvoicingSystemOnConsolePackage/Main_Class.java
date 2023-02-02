@@ -86,12 +86,30 @@ public class Main_Class {
 							break;
 
 						case 2:
+							boolean shopSettingExit1 = true;
+							while (shopSettingExit1) {
 
 							groceries_Shop_Shop_Table.insertIntoTable();
+							
+							System.out.println("If you want to insert more data please press 1 atherwhise press 0");
+							
+							int user2 =sc.nextInt();
+							if(user2==1) {
+								groceries_Shop_Shop_Table.insertIntoTable();
+							}else {
+								
+								shopSettingExit1 = false;
+
+							}
+							}
+
 
 							break;
 
 						case 3:
+							
+							shopSettingExit = false;
+
 
 							break;
 						}
