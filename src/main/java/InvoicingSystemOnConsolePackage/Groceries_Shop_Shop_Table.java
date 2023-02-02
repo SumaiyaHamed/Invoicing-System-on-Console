@@ -16,8 +16,9 @@ public class Groceries_Shop_Shop_Table {
 		String url = "jdbc:mysql://localhost:3306/Groceries_Shop";
 		String user = "root";
 		String pass = "root";
-		String sqlDB = "CREATE TABLE Shop " + "(id INTEGENR AUTO_INCREMET," +
+		String sqlDB = "CREATE TABLE Shop " + "(id INTEGER AUTO_INCREMENT," +
 		                                      "  shop_name  VARCHAR(255), " +
+		                                      "Tel INTEGER,"+"Fax TEXT," +"Email TEXT,"+"Website TEXT,"+
 				                              " PRIMARY KEY ( id ))";
 		java.sql.Connection conn = null;
 		try {
