@@ -53,6 +53,18 @@ public class Groceries_Shop_Shop_Table {
 		
 		System.out.println("Enter the shop_name:");
 		String shop_name = sa.next();
+		
+		System.out.println("Enter the Tel:");
+		int Tel = sa.nextInt();
+		
+		System.out.println("Enter the Fax:");
+		String Fax = sa.next();
+		
+		System.out.println("Enter the Email:");
+		String Email = sa.next();
+		
+		System.out.println("Enter the Website:");
+		String Website = sa.next();
 
 		
 		
@@ -62,7 +74,7 @@ public class Groceries_Shop_Shop_Table {
 		try {
 		
 
-			String sql = "INSERT INTO Shop(shop_name)"+" VALUES('"+shop_name+"')";
+			String sql = "INSERT INTO Shop(shop_name,Tel,Fax,Email,Website)"+" VALUES('"+shop_name+"',"+Tel+",'"+Fax+"','"+Email+"','"+Website+"')";
 						              
 			
 		
@@ -77,6 +89,8 @@ public class Groceries_Shop_Shop_Table {
 				System.out.println("Inserte table in database is success...");
 			} else {
 				System.out.println(" table already Inserte in given database...");
+				System.out.println(" .........................................................................");
+
 			}
 			conn1.close();
 		} catch (Exception ex) {

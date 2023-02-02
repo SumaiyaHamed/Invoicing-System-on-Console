@@ -15,7 +15,7 @@ public class Main_Class {
 		Groceries_Shop_Invoice_Table groceries_Shop_Invoice_Table = new Groceries_Shop_Invoice_Table();
 		Groceries_Shop_Item_Table groceries_Shop_Item_Table = new Groceries_Shop_Item_Table();
 		Groceries_Shop_Shop_Table groceries_Shop_Shop_Table = new Groceries_Shop_Shop_Table();
-		Groceries_Shop_Invoice_Header_Table groceries_Shop_Invoice_Header_Table = new Groceries_Shop_Invoice_Header_Table();
+		
 
 		do {
 
