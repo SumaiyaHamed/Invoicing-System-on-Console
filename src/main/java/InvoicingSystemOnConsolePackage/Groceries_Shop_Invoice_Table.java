@@ -1,9 +1,11 @@
 package InvoicingSystemOnConsolePackage;
 
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 import java.util.Scanner;
@@ -17,7 +19,7 @@ public class Groceries_Shop_Invoice_Table {
 		String url = "jdbc:mysql://localhost:3306/Groceries_Shop";
 		String user = "root";
 		String pass = "root";
-		String sqlDB = "CREATE TABLE Invoice " + "(id INTEGER," +
+		String sqlDB = "CREATE TABLE Invoice " + "(id INTEGER AUTO_INCREMENT," +
 		                                       " customer_name  VARCHAR(255), "+
 				                               " Phone_No INTEGER, " +
                                                " invoice_date Date , " + 
@@ -26,7 +28,8 @@ public class Groceries_Shop_Invoice_Table {
 				                               "paid_amount FLOAT , " +
 				                               "balance FLOAT ,"+
 				                               "product_id INTEGER ,"+
-				                               "FOREIGN KEY (product_id) REFERENCES Product(product_id) ,"+"PRIMARY KEY (id))";
+				                               "PRIMARY KEY (id),"+
+				                               "FOREIGN KEY (product_id) REFERENCES Product(id) )";
 		java.sql.Connection conn = null; 
 		try {
 			Driver driver = (Driver) Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -58,18 +61,54 @@ public class Groceries_Shop_Invoice_Table {
 
 		Scanner sa = new Scanner(System.in);
 		Date invoice_date=new Date(System.currentTimeMillis());
-
-		System.out.println("Enter the invoice_ID:");
-		int invoice_ID = sa.nextInt();
 		
-		System.out.println("Enter the customer_name:");
-		String customer_name = sa.next();
+	
+		
+		
+try {
+	Connection con = null;
+	
+			Driver driver1 = (Driver) Class.forName("com.mysql.jdbc.Driver").newInstance();
+			DriverManager.registerDriver(driver1);
+			con = DriverManager.getConnection(url, username, password);
+			Statement st = (Statement) con.createStatement();
+			
+			System.out.println("Enter the customer_name:");
+			String customer_name = sa.next(); 
+			
+			int m = ((java.sql.Statement) st).executeUpdate(customer_name);
+			if (m >= 1) {
+				System.out.println("corect value");
+			} 
+			con.close();
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
 
 		System.out.println("Enter the Phone_No:");
 		int Phone_No = sa.nextInt();
 		
-//		System.out.println("Enter the invoice_date:");
-//		Date invoice_date = sa.nextD;
+		try {
+			Connection con = null;
+			
+					Driver driver1 = (Driver) Class.forName("com.mysql.jdbc.Driver").newInstance();
+					DriverManager.registerDriver(driver1);
+					con = DriverManager.getConnection(url, username, password);
+					Statement st = (Statement) con.createStatement();
+					
+					System.out.println("Enter the Phone_No:");
+					int Phone_No = sa.nextInt(); 
+					
+					int m = ((java.sql.Statement) st).executeUpdate(customer_name);
+					if (m >= 1) {
+						System.out.println("corect value");
+					} 
+					con.close();
+				} catch (Exception ex) {
+					System.err.println(ex);
+				}
+		
+		
 		
 		System.out.println("Enter the NO_items:");
 		int NO_items = sa.nextInt();
@@ -83,31 +122,15 @@ public class Groceries_Shop_Invoice_Table {
 		System.out.println("Enter the balance:");
 		int balance = sa.nextInt();
 		
-		System.out.println("Enter the item_ID:");
-		int item_ID = sa.nextInt();
-		
-		String sql = "select item_ID  from Product =" + item_ID + "";
+//		
 		
 		java.sql.Connection conn1 = DriverManager.getConnection(url, username,
                 password);
 		try {
 		
 
-			String sql1 = "INSERT INTO Invoice VALUES(?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO Invoice(customer_name,Phone_No,NO_items,total_amount,paid_amount,balance)"+" VALUES('"+customer_name+"',"+Phone_No+","+NO_items+","+total_amount+","+paid_amount+","+balance+")";
 						              
-			
-			
-			PreparedStatement pstmt = conn1.prepareStatement(sql);
-			pstmt.setInt(1, invoice_ID);
-			pstmt.setString(2, customer_name);
-			pstmt.setInt(3, Phone_No);
-			pstmt.setDate(4, invoice_date);
-			pstmt.setInt(5, NO_items);
-			pstmt.setFloat(6, total_amount);
-			pstmt.setFloat(7, paid_amount);
-			pstmt.setInt(8, balance);
-			pstmt.setInt(9, item_ID);
-			pstmt.executeUpdate();
 			
 			System.out.println("added successfully");
 			
@@ -127,8 +150,98 @@ public class Groceries_Shop_Invoice_Table {
 		}
 	
 	} 
+	
+	
+	public static void sellectMethod() throws SQLException {
 
+		String url = "jdbc:mysql://localhost:3306/Groceries_Shop";
+		String username = "root";
+		String password = "root";
 
+		//Scanner sa = new Scanner(System.in);
+
+		//java.sql.Connection conn1 = DriverManager.getConnection(url, username, password);
+		
+		String sql = "SELECT * FROM Invoice";
+		Connection con = null;
+		
+		try {
+			
+			// System.out.println("added successfully");
+
+			Driver driver1 = (Driver) Class.forName("com.mysql.jdbc.Driver").newInstance();
+			DriverManager.registerDriver(driver1);
+			con = DriverManager.getConnection(url, username, password);
+			Statement st = (Statement) con.createStatement();
+			 ResultSet n = ((java.sql.Statement) st).executeQuery(sql);
+
+			//ResultSet n = st.executeQuery(sql);
+			 while (n.next()) {
+			System.out.println("==================================");
+			System.out.println(" id:" + n.getString(1));
+		    System.out.println(" customer_name:" + n.getString(2));
+		   // System.out.println(" Phone_No:" + n.getString(3));
+		    System.out.println(" invoice_date:" + n.getString(4));
+		    System.out.println(" NO_items:" + n.getString(5));
+		    System.out.println(" total_amount:" + n.getString(6));
+		  //  System.out.println(" paid_amount:" + n.getString(7));
+		    System.out.println(" balance:" + n.getString(8));
+		    
+			System.out.println("==================================");
+		}
+	
+			con.close();
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
+
+	}
+
+	public static void getById() throws SQLException {
+
+		String url = "jdbc:mysql://localhost:3306/Groceries_Shop";
+		String username = "root";
+		String password = "root";
+
+		Scanner sa = new Scanner(System.in);
+
+		System.out.println("Enter id :");
+		int user = sa.nextInt();
+		
+		String sql ="select * from Invoice where id =" + user;
+		Connection con = null;
+		
+		try {
+			
+			// System.out.println("added successfully");
+
+			Driver driver1 = (Driver) Class.forName("com.mysql.jdbc.Driver").newInstance();
+			DriverManager.registerDriver(driver1);
+			con = DriverManager.getConnection(url, username, password);
+			Statement st = (Statement) con.createStatement();
+			 ResultSet n = ((java.sql.Statement) st).executeQuery(sql);
+
+			//ResultSet n = st.executeQuery(sql);
+			 while (n.next()) {
+			System.out.println("==================================");
+			System.out.println(" id:" + n.getString(1));
+		    System.out.println(" customer_name:" + n.getString(2));
+		    System.out.println(" Phone_No:" + n.getString(3));
+		    System.out.println(" invoice_date:" + n.getString(4));
+		    System.out.println(" NO_items:" + n.getString(5));
+		    System.out.println(" total_amount:" + n.getString(6));
+		    System.out.println(" paid_amount:" + n.getString(7));
+		    System.out.println(" balance:" + n.getString(8));
+		    
+			System.out.println("==================================");
+		}
+	
+			con.close();
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
+
+	}
 		
 
 }

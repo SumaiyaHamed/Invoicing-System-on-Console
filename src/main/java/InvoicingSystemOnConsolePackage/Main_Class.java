@@ -15,7 +15,6 @@ public class Main_Class {
 		Groceries_Shop_Invoice_Table groceries_Shop_Invoice_Table = new Groceries_Shop_Invoice_Table();
 		Groceries_Shop_Item_Table groceries_Shop_Item_Table = new Groceries_Shop_Item_Table();
 		Groceries_Shop_Shop_Table groceries_Shop_Shop_Table = new Groceries_Shop_Shop_Table();
-		
 
 		do {
 
@@ -32,43 +31,6 @@ public class Main_Class {
 				switch (user) {
 
 				case 1:
-
-					boolean tableSettingExit = true;
-					while (tableSettingExit) {
-
-						System.out.println("1- Create Tables  \r\n" + "2- Insert Into Tables \r\n");
-
-						System.out.println("..........................................");
-
-						System.out.println("Please Select Option:");
-						int user1 = sc.nextInt();
-						System.out.println("..........................................");
-
-						switch (user1) {
-
-						case 1:
-
-							//groceries_Shop_Invoice_Table.createTable();
-
-							// groceries_Shop_Invoice_Table.createTable();
-							// System.out.println("..........................................");
-						//	groceries_Shop_Item_Table.createTable();
-//				System.out.println("..........................................");
-							 groceries_Shop_Shop_Table.createTable();
-						
-							System.out.println("..........................................");
-//				
-
-							break;
-
-						case 2:
-
-							break;
-
-						}
-
-					}
-				case 2:
 					boolean shopSettingExit = true;
 					while (shopSettingExit) {
 						shop_Setting.Shop_Setting_Menu();
@@ -89,27 +51,24 @@ public class Main_Class {
 							boolean shopSettingExit1 = true;
 							while (shopSettingExit1) {
 
-							groceries_Shop_Shop_Table.insertIntoTable();
-							
-							System.out.println("If you want to insert more data please press 1 atherwhise press 0");
-							
-							int user2 =sc.nextInt();
-							if(user2==1) {
 								groceries_Shop_Shop_Table.insertIntoTable();
-							}else {
-								
-								shopSettingExit1 = false;
 
-							}
-							}
+								System.out.println("If you want to insert more data please press 1 atherwhise press 0");
 
+								int user2 = sc.nextInt();
+								if (user2 == 1) {
+									groceries_Shop_Shop_Table.insertIntoTable();
+								} else {
+
+									shopSettingExit1 = false;
+
+								}
+							}
 
 							break;
 
 						case 3:
-							
 							shopSettingExit = false;
-
 
 							break;
 						}
@@ -117,14 +76,162 @@ public class Main_Class {
 
 					break;
 
+				case 2:
+
+					boolean manageShopExit = true;
+					while (manageShopExit) {
+
+						manage_Shop_Item.Manage_Shop_Item_Menu();
+						System.out.println("..........................................");
+
+						System.out.println("Please Select Option:");
+						int user1 = sc.nextInt();
+
+						System.out.println("..........................................");
+
+						switch (user1) {
+
+						case 1:
+
+							boolean manageShopExit1 = true;
+							while (manageShopExit1) {
+
+								groceries_Shop_Item_Table.insertIntoTable();
+
+								System.out.println("If you want to insert more data please press 1 atherwhise press 0");
+
+								int user2 = sc.nextInt();
+								if (user2 == 1) {
+									groceries_Shop_Item_Table.insertIntoTable();
+								} else {
+
+									manageShopExit1 = false;
+
+								}
+							}
+
+							break;
+
+						case 2:
+
+							boolean manageShopExit2 = true;
+							while (manageShopExit2) {
+
+								groceries_Shop_Item_Table.deleteById();
+
+								System.out.println("If you want to delete more data please press 1 atherwhise press 0");
+
+								int user2 = sc.nextInt();
+								if (user2 == 1) {
+									groceries_Shop_Item_Table.deleteById();
+								} else {
+
+									manageShopExit2 = false;
+
+								}
+							}
+
+							break;
+
+						case 3:
+
+							boolean manageShopExit3 = true;
+							while (manageShopExit3) {
+
+								groceries_Shop_Item_Table.updateById();
+
+								System.out.println("If you want to delete more data please press 1 atherwhise press 0");
+
+								int user2 = sc.nextInt();
+								if (user2 == 1) {
+									groceries_Shop_Item_Table.updateById();
+								} else {
+
+									manageShopExit2 = false;
+
+								}
+							}
+
+							break;
+							
+						case 4:
+
+							boolean manageShopExit4 = true;
+							while (manageShopExit4) {
+
+								groceries_Shop_Item_Table.sellectMethod();
+
+								System.out.println("If you want to bake to menue press 0");
+
+								int user2 = sc.nextInt();
+								if (user2 == 0) {
+									manageShopExit2 = false;
+								} 
+							}
+
+							break;
+							
+						case 5:
+							manageShopExit = false;
+							break;
+
+						}
+					}
+
+					break;
+
 				case 3:
 
-					manage_Shop_Item.Manage_Shop_Item_Menu();
+					boolean invoiceTableExit1 = true;
+					while (invoiceTableExit1) {
+
+						groceries_Shop_Invoice_Table.insertIntoTable();
+
+						System.out.println("If you want to insert more data please press 1 atherwhise press 0");
+
+						int user2 = sc.nextInt();
+						if (user2 == 1) {
+							groceries_Shop_Invoice_Table.insertIntoTable();
+						} else {
+
+							invoiceTableExit1 = false;
+
+						}
+					}
+					break;
+
+				case 4:
+
+					break;
+
+				case 5:
+					groceries_Shop_Invoice_Table.sellectMethod();
+
+					break;
+
+				case 6:
+					groceries_Shop_Invoice_Table.getById();
+					break;
+
+				case 7:
+
+					break;
+				case 8:
+
+					System.out.println("If you want to insert more data please press 1 atherwhise press 0");
+
+					int user2 = sc.nextInt();
+					if (user2 == 1) {
+						applicationMainMenu.main_Menu();
+					} else {
+
+						Exit = false;
+
+					}
 
 					break;
 
 				}
-
 			}
 
 		} while (false);
