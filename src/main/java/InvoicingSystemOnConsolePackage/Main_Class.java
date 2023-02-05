@@ -1,5 +1,6 @@
 package InvoicingSystemOnConsolePackage;
 
+import java.awt.Menu;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -10,30 +11,35 @@ public class Main_Class {
 		Scanner sc = new Scanner(System.in);
 
 		ApplicationMainMenu applicationMainMenu = new ApplicationMainMenu();
-		Shop_Setting shop_Setting = new Shop_Setting();
-		Manage_Shop_Item manage_Shop_Item = new Manage_Shop_Item();
+		//Shop_Setting shop_Setting = new Shop_Setting();
+		//Manage_Shop_Item manage_Shop_Item = new Manage_Shop_Item();
 		Groceries_Shop_Invoice_Table groceries_Shop_Invoice_Table = new Groceries_Shop_Invoice_Table();
 		Groceries_Shop_Item_Table groceries_Shop_Item_Table = new Groceries_Shop_Item_Table();
 		Groceries_Shop_Shop_Table groceries_Shop_Shop_Table = new Groceries_Shop_Shop_Table();
 
 		do {
 
-			boolean Exit = true;
-			while (Exit) {
-				applicationMainMenu.main_Menu();
+			boolean mainMenu = true;
+			while (mainMenu) {
+			//	applicationMainMenu.main_Menu();
+				
+			 
+				applicationMainMenu.getMenuArray(1);
+			 
 
 				System.out.println("..........................................");
 
 				System.out.println("Please Select Option:");
-				int user = sc.nextInt();
+				String user = sc.next();
 				System.out.println("..........................................");
+				int option=Integer.parseInt(user);
 
-				switch (user) {
+				switch (option) {
 
 				case 1:
 					boolean shopSettingExit = true;
 					while (shopSettingExit) {
-						shop_Setting.Shop_Setting_Menu();
+						applicationMainMenu.getMenuArray(2);
 
 						System.out.println("..........................................");
 
@@ -81,7 +87,8 @@ public class Main_Class {
 					boolean manageShopExit = true;
 					while (manageShopExit) {
 
-						manage_Shop_Item.Manage_Shop_Item_Menu();
+						applicationMainMenu.getMenuArray(3);
+						
 						System.out.println("..........................................");
 
 						System.out.println("Please Select Option:");
@@ -222,10 +229,10 @@ public class Main_Class {
 
 					int user2 = sc.nextInt();
 					if (user2 == 1) {
-						applicationMainMenu.main_Menu();
+						applicationMainMenu.getMenuArray(1);
 					} else {
 
-						Exit = false;
+						mainMenu = false;
 
 					}
 
